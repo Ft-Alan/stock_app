@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<table style='margin-top: 30px' class="table table-hover">
+    <thead class="table-striped table-dark">
+      <tr>
+        <th scope="col"> Symbol </th>
+        <th scope="col"> No. of Shares </th>
+        <th scope="col"> Current Price </th>
+        <th scope="col"> Date & Time </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+      <tr>
+            <th scope="row">{{ row['symbol'] }} </th>
+            <td>  {{ row['shares']  }}  </td>
+            <td>  {{ row['price']  }} </td>
+            <td>  {{ row['t_stamp']  }} </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+{% endblock %}

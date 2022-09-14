@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<table style='margin-top: 30px' class="table table-hover">
+    <thead class="table-striped table-dark">
+      <tr>
+        <th scope="col"> Symbol </th>
+        <th scope="col"> No. of Shares </th>
+        <th scope="col"> Current Price </th>
+        <th scope="col"> Value </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for symbol, values in portfolio.items() %}
+      <tr>
+            <th scope="row">{{ symbol }} </th>
+            <td>  {{ values[0] }}  </td>
+            <td>  {{ values[1] }} </td>
+            <td>  {{ values[2] }} </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+    <tfoot>
+        <tr class="bg-success">
+            <th scope='row' colspan='3'> Remaining Cash </th>
+            <td> {{ cash }} </td>
+        </tr>
+        <tr class="bg-primary">
+            <th scope='row' colspan='3'> Grand Total </th>
+            <td> {{ gt }} </td>
+        </tr>
+    </tfoot>
+  </table>
+{% endblock %}
